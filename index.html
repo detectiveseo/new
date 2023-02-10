@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1 id="heading" onclick="colorWhite()">Hello</h1>
+    <button onclick="colorRed()">make Heading red color</button>
     
     <script>
         const heading = document.getElementById('heading');
@@ -23,6 +24,11 @@
             document.getElementById('heading').style.fontSize = '90px';
         })
         console.log(heading)
+        function colorRed(){
+            addEventListener('click', function(){
+                document.getElementById('heading').style.backgroundColor = "red";
+            })
+        }
     </script>
 </body>
 </html>
