@@ -4,32 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commant Box</title>
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
+        span{
+            color: red;
+        }
+        .boxs{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .boxWarp{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .box{
+            width: 120px;
+            height: 120px;
+            border: 1px solid gray;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 20px;
+        }
+        .boxWarp img{
+            width: 130px;
+
+        }
+    </style>
 </head>
 <body>
-    <h1>Best top rubiscube for child  </h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, quos eos eligendi laudantium unde debitis id modi consectetur beatae illum adipisci, dolor est. Illum deserunt non architecto harum inventore culpa beatae quibusdam qui nihil voluptate, doloremque iusto voluptatibus exercitationem ea mollitia eum, ex quos maxime quidem! Voluptatibus quo illum nostrum! Cum commodi officia, adipisci nobis ullam rem cupiditate quasi magni, possimus suscipit tempore, dignissimos illo atque quisquam amet harum odio? Molestias voluptatibus delectus architecto quia harum. Facere ratione debitis praesentium delectus fugit recusandae mollitia dolorem animi laudantium, qui, obcaecati minima eveniet molestiae eum vel atque? Assumenda illum, repudiandae vel velit, ipsa deleniti quibusdam facere perspiciatis reiciendis rerum laudantium, suscipit tenetur eveniet magni minus eos aspernatur est dolore quisquam. Quibusdam molestiae eius nulla aperiam minus quos, voluptate quod eligendi nam suscipit aliquid quis, aut, ea voluptatum dolor numquam impedit itaque in. Voluptatum incidunt, sit ut in sint mollitia enim vel doloremque corporis impedit quasi voluptates nisi quidem, eos sed veniam vitae excepturi. Amet quaerat maiores repellat consectetur hic maxime adipisci dicta doloribus similique dignissimos! Ab repellat alias repellendus accusamus, facere aliquid dolores cum quas rerum molestiae iure sed? At magni voluptate, ut obcaecati mollitia quaerat labore enim consequuntur laudantium temporibus vitae?</p>
-    <h4>Comments given by user</h4>
-    <div id="comments">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias aliquam, dignissimos totam distinctio praesentium eligendi expedita eveniet? Quo ab itaque ea reprehenderit natus, culpa, incidunt voluptatum est voluptates, perferendis aliquid.</p>
+    <h2>Find the <span>Imposter</span></h2>
+    <div class="boxs">
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
+        <div class="boxWarp"><img class="box" src="./Images/lock.png" alt=""></div>
     </div>
-    <h2>write your Comment</h2>
-    <textarea name="commentBox" id="commentWriteAria" cols="90" rows="10"></textarea>
-    <br>
-    <button id="postSubmit">submit</button>
-    <script>
-        document.getElementById('postSubmit').addEventListener('click', function(){
-            const commentValue = document.getElementById('commentWriteAria').value;
-            const createComment = document.createElement('p');
-            createComment.innerText = commentValue;
-            const comments = document.getElementById('comments').appendChild(createComment)
-            document.getElementById('commentWriteAria').value = '';
+    <h2>Attempt time: <span id="attemptTime">0</span></h2>
+    <h5>Game Author - Imran</h5>
 
-        })
-        document.getElementById('postSubmit').style.backgroundColor = 'red';
-        document.getElementById('postSubmit').style.color = '#ffffff';
-        document.getElementById('postSubmit').style.padding = '30px 60px';
-        document.getElementById('postSubmit').style.fontSize = '60px';
+
+    <script>
+        const boxs = document.getElementsByClassName('box');
+        let clickedTime = document.getElementById('attemptTime').innerText;
+
+        for(const box of boxs){
+            box.addEventListener('click', function(event){
+                let attributeOFImage = event.target;
+                attributeOFImage.setAttribute('src', 'Images/no.gif');
+                clickedTime = +clickedTime + 1
+                document.getElementById('attemptTime').innerText = clickedTime;
+            })
+        }
     </script>
 </body>
 </html>
